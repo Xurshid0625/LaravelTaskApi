@@ -11,9 +11,7 @@ class CreateClientOrderAction
 {
     use AsAction;
 
-    public function __construct(
-        protected CreateOrderRequest $request
-    )
+    public function __construct(protected CreateOrderRequest $request)
     {
     }
 

@@ -17,12 +17,4 @@ class StorageProductRepository extends CoreRepository
             ->where('qty', '>', 0)
             ->get();
     }
-
-    public static function getRemainingByDate(string $date)
-    {
-        return static::getModel()
-            ->query()
-            ->with(['product.category'])
-            ->get();
-    }
 }

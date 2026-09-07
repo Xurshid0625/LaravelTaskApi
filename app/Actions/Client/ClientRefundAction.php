@@ -11,9 +11,7 @@ class ClientRefundAction
 {
     use AsAction;
 
-    public function __construct(
-        protected ClientRefundRequest $request
-    )
+    public function __construct(protected ClientRefundRequest $request)
     {
     }
 

@@ -2,14 +2,14 @@
 
 namespace App\Repositories\Actions\Batch;
 
-use App\DTOs\PurchaseDTO;
-use App\Models\Batch;
-use App\Repositories\BatchProductRepository;
-use App\Repositories\BatchRepository;
-use App\Repositories\StorageProductRepository;
-use Illuminate\Support\Facades\DB;
-use Lorisleiva\Actions\Concerns\AsAction;
 use Throwable;
+use App\Models\Batch;
+use App\DTOs\PurchaseDTO;
+use Illuminate\Support\Facades\DB;
+use App\Repositories\BatchRepository;
+use Lorisleiva\Actions\Concerns\AsAction;
+use App\Repositories\StorageProductRepository;
+use App\Repositories\BatchProductRepository;
 
 class CreateBatchRepoAction
 {
@@ -33,7 +33,7 @@ class CreateBatchRepoAction
                     ],
                     [
                         'qty' => DB::raw(
-                            'qty + ' . (int) $product['qty']
+                            'qty + ' . (int)$product['qty']
                         ),
                     ]
                 );
@@ -52,10 +52,7 @@ class CreateBatchRepoAction
         ];
     }
 
-    private static function fillBatchProduct(
-        int   $batchId,
-        array $product
-    ): array
+    private static function fillBatchProduct(int $batchId, array $product): array
     {
         return [
             'batch_id' => $batchId,
