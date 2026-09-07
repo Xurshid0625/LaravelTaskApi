@@ -1,0 +1,194 @@
+{
+  "info": {
+    "_postman_id": "b2bc9879-df1c-4e5b-8e0a-294f36c5d95b",
+    "name": "LaravelTaskApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41259464"
+  },
+  "item": [
+    {
+      "name": "Batch",
+      "item": [
+        {
+          "name": "createPurchase",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"provider_id\": 1,\n    \"storage_id\": 1,\n    \"purchased_at\": \"2026-09-07\",\n    \"products\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 100,\n            \"purchase_price\": 18000\n        },\n        {\n            \"product_id\": 2,\n            \"qty\": 50,\n            \"purchase_price\": 20000\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/purchases",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "purchases"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PurchaseRefund",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"batch_id\": 2,\n    \"products\": [\n        {\n            \"product_id\": 1,\n            \"qty\": 20\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/purchase-refunds",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "purchase-refunds"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getProfitBatch",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/batches/profit",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "batches",
+                "profit"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "getProducts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/products/available",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "products",
+                "available"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "orders",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"client_id\": 1,\n    \"products\": [\n        {\n            \"id\": 1,\n            \"qty\": 120\n        },\n        {\n            \"id\": 2,\n            \"qty\": 30\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/orders",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "clientRefund",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"order_id\": 1,\n    \"products\": [\n        {\n            \"order_product_id\": 1,\n            \"qty\": 20\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/client-refunds",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "client-refunds"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Storage",
+      "item": [
+        {
+          "name": "Remaining Storage",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/storages/remaining?date=2026-09-07",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "storages",
+                "remaining"
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "2026-09-07"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
