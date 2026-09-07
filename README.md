@@ -52,13 +52,22 @@ The oldest available batch is used first.
 
 If the requested quantity cannot be fulfilled from one batch, the system continues with the next available batch.
 
-For example:
+## Tests
 
-```text
-Batch 1: 100 units
-Batch 2: 100 units
+Feature tests have been written to verify the core business logic of the application.
 
-Order: 150 units
+The tests cover:
 
-Batch 1 → 100 units
-Batch 2 → 50 units
+- Purchasing products and adding them to storage
+- Creating client orders using FIFO batch selection
+- Splitting orders between multiple batches
+- Client refunds and returning products to storage
+- Purchase refunds
+- Preventing refunds from exceeding available quantities
+- Returning available products
+- Calculating remaining storage by date
+
+Run all tests:
+
+```bash
+php artisan test
